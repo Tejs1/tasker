@@ -1,6 +1,7 @@
 import {
   ClerkProvider,
   SignInButton,
+  SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
@@ -8,6 +9,7 @@ import {
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
+import Link from "next/link";
 
 export const metadata = {
   title: "Create T3 App",
@@ -22,14 +24,30 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
-        <body>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+      <html lang="en" className={`${GeistSans.variable} `}>
+        <body className="flex min-h-screen w-full flex-col items-center p-4">
+          <nav className="flex w-full flex-row justify-between">
+            <div className="flex flex-row justify-between gap-4">
+              <h1>Home</h1>
+              <h1>
+                <Link href="/dashboard">dasboard</Link>
+              </h1>
+            </div>
+            <div className="flex flex-row gap-4">
+              <SignedOut>
+                <div>
+                  <SignInButton />
+                </div>
+                <div>
+                  <SignUpButton />
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </div>
+          </nav>
+
           {children}
         </body>
       </html>
