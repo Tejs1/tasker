@@ -8,6 +8,7 @@ export default async function HomePage() {
     <div>
       <h1>Home Page</h1>
       <Link href="/about">About</Link>
+      <Link href="/dashboard">dasboard</Link>
       <ul>
         {users.map((user) => (
           <li key={user.id}>{user.email}</li>

@@ -3,3 +3,10 @@ export type User = {
   email: string;
   name: string | null;
 };
+
+export type Task = {
+  id: string;
+  title: string;
+  completed: boolean;
+  authorId: string;
+};
