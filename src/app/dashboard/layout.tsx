@@ -1,6 +1,6 @@
 import NewTaskForm from "@/components/NewTaskForm";
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <div>
