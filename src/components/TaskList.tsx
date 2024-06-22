@@ -1,14 +1,7 @@
-import { type Task } from "@prisma/client";
+import { type Task } from "@/lib/types";
 import TaskComponent from "./TaskComponent";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
+import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
 const TodoList = ({ tasks }: { tasks: Task[] }) => {
   return (
     <Table className="m-auto max-w-screen-sm">

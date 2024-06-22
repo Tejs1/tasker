@@ -36,9 +36,9 @@ const createNewUser = async (name: string) => {
       console.error(error);
     }
 
-    redirect("/dashboard");
+    redirect("/");
   } else {
-    redirect("/dashboard");
+    redirect("/");
   }
 };
 

@@ -18,7 +18,8 @@ model User {
 model Task {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
   title     String
-  status    String  
+  // type Status = "Todo" | "Pending" | "Done" | "Backlog" | "Canceled";
+  status    String  @default("Todo") 
   clerkId   String  @map("clerk_id")
 
 
