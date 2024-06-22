@@ -18,6 +18,9 @@ const TaskComponent = ({ task }: { task: Task }) => {
   const handleChange = async (value: string) => {
     await updateTask(task.id, value);
   };
+  const handleClick = async () => {
+    await deleteTask(task.id);
+  };
   // const [startTransition] = useTransition();
   // const handleCompleteTask = async (taskId: string) => {
   //   try {
@@ -52,12 +55,11 @@ const TaskComponent = ({ task }: { task: Task }) => {
           </SelectContent>
         </Select>
       </TableCell>
-      <TableCell className="text-right">
+      <TableCell>
         <Trash2
-          onClick={() => {
-            async () => {
-              await deleteTask(task.id);
-            };
+          className="cursor-pointer"
+          onClick={async () => {
+            await handleClick();
           }}
         />
       </TableCell>
