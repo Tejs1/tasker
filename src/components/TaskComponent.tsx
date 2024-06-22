@@ -18,14 +18,14 @@ const TaskComponent = ({ task }: { task: Task }) => {
   const handleChange = async (value: string) => {
     await updateTask(task.id, value);
   };
-  const [isPending, startTransition] = useTransition();
-  const handleCompleteTask = async (taskId: string) => {
-    try {
-      await completeTask(taskId);
-    } catch (error) {
-      console.error("Error completing task:", error);
-    }
-  };
+  const [startTransition] = useTransition();
+  // const handleCompleteTask = async (taskId: string) => {
+  //   try {
+  //     await completeTask(taskId);
+  //   } catch (error) {
+  //     console.error("Error completing task:", error);
+  //   }
+  // };
   return (
     <TableRow className="grid  grid-cols-[1fr_0.25fr_40px]">
       <TableCell

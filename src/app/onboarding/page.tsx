@@ -4,7 +4,6 @@ import { db } from "@/server/db";
 import { currentUser } from "@clerk/nextjs/server";
 
 import { redirect } from "next/navigation";
-import { type NextRequest } from "next/server";
 
 const createNewUser = async (name: string) => {
   // const searchParams = request.nextUrl.searchParams

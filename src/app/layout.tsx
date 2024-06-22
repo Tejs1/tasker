@@ -9,7 +9,6 @@ import {
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
-import Link from "next/link";
 
 export const metadata = {
   title: "Task Manager",
