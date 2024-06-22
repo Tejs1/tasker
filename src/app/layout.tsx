@@ -24,7 +24,10 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable} `}>
+      <html
+        lang="en"
+        className={`${GeistSans.variable} suppressHydrationWarning `}
+      >
         <body className="flex min-h-screen w-full flex-col items-center p-4">
           <nav className="flex w-full flex-row justify-between">
             <div className="flex flex-row justify-between gap-4">

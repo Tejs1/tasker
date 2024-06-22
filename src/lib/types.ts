@@ -7,6 +7,7 @@ export type User = {
 export type Task = {
   id: string;
   title: string;
-  completed: boolean;
+  status: Status;
   clerkId: string;
 };
+export type Status = "Todo" | "Pending" | "Done" | "Backlog" | "Canceled";

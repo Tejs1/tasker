@@ -18,7 +18,7 @@ model User {
 model Task {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
   title     String
-  completed Boolean @default(false)
+  status    String  
   clerkId   String  @map("clerk_id")
 
 

@@ -43,6 +43,7 @@ export async function createTask(task: string) {
       data: {
         title: task,
         clerkId: user?.id ? user.id : "user",
+        status: "todo",
       },
     });
     revalidatePath("/dashboard");
@@ -62,7 +63,7 @@ export async function completeTask(taskId: string) {
   try {
     await db.task.update({
       where: { id: taskId },
-      data: { completed: true },
+      data: { status: "done" },
     });
     revalidatePath("/dashboard");
     return { message: "Task completed successfully" };
@@ -95,12 +96,13 @@ export async function deleteTask(taskId: string) {
   }
 }
 // update task
-export async function updateTask(taskId: string, newTask: string) {
+export async function updateTask(taskId: string, status?: string) {
   try {
     await db.task.update({
       where: { id: taskId },
-      data: { title: newTask },
+      data: { status: status },
     });
+    revalidatePath("/dashboard");
     return { message: "Task updated successfully" };
   } catch (error) {
     if (error instanceof Error) {
