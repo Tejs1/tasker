@@ -38,7 +38,7 @@ const createNewUser = async (name: string) => {
 
     redirect("/dashboard");
   } else {
-    redirect("/sign-in");
+    redirect("/dashboard");
   }
 };
 

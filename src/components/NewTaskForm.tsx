@@ -1,6 +1,8 @@
 "use client";
-import { useState } from "react";
+import { type SetStateAction, useState } from "react";
 import { createTask } from "@/server/actions";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 const NewTaskForm: React.FC = () => {
   const [task, setTask] = useState("");
@@ -12,18 +14,23 @@ const NewTaskForm: React.FC = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
+    <form
+      onSubmit={handleSubmit}
+      className="m-4 flex w-full max-w-screen-sm flex-row items-center justify-center"
+    >
+      <div className="flex w-full flex-row items-center space-x-2">
+        <Input
           type="text"
           name="task"
-          className="border border-black"
+          className="w-full border  border-black"
           value={task}
-          onChange={(e) => setTask(e.target.value)}
+          onChange={(e: { target: { value: SetStateAction<string> } }) =>
+            setTask(e.target.value)
+          }
         />
-        <button type="submit">Create</button>
-      </form>
-    </div>
+        <Button type="submit">Add</Button>
+      </div>
+    </form>
   );
 };
 
