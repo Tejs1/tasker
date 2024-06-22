@@ -7,17 +7,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Task {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  authorId  String  @db.ObjectId
-  completed Boolean @default(false)
-  slug      Json?   @unique
-  title     String
+model User {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId String @unique @map("clerk_id")
+  email   String @unique
+  name    String
+
 }
 
-model User {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  clerkId String @unique @map("clerk_id")
-  email String @unique
-  name  String
+model Task {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  completed Boolean @default(false)
+  clerkId   String  @map("clerk_id")
+
+
+  @@index([clerkId])
 }

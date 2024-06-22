@@ -4,7 +4,7 @@ import TaskComponent from "./TaskComponent";
 const TodoList = ({ tasks }: { tasks: Task[] }) => {
   return (
     <div>
-      {tasks.map((task: Task) => (
+      {tasks.map((task) => (
         <TaskComponent key={task.id} task={task} />
       ))}
     </div>

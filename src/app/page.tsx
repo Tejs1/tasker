@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { getAllUsers } from "@/server/queries";
+import { fetchAllUsers } from "@/lib/api";
 
 export default async function HomePage() {
-  const users = await getAllUsers();
+  const users = await fetchAllUsers();
+  console.log(users, "users");
   return (
     // cretae a new page
     <div>

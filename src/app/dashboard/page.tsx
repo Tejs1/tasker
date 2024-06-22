@@ -1,20 +1,19 @@
 import TaskList from "@/components/TaskList";
-import { db } from "@/server/db";
-
-const getData = async () => {
-  // await new Promise((resolve) => setTimeout(() => resolve(), 2000))
-  const tasks = await db.task.findMany();
-
-  return tasks;
-};
+import { getTask } from "@/server/actions";
 
 const tasksPage = async () => {
-  const tasks = await getData();
-  return (
-    <div>
-      <TaskList tasks={tasks} />
-    </div>
-  );
+  const tasks = await getTask();
+  if (Array.isArray(tasks)) {
+    console.log(tasks);
+    return (
+      <div>
+        <TaskList tasks={tasks} />
+      </div>
+    );
+  } else {
+    console.error(tasks.error);
+    return <div>{tasks.error}</div>;
+  }
 };
 
 export default tasksPage;
