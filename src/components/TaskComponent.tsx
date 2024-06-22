@@ -1,6 +1,6 @@
 "use client";
-import { completeTask, deleteTask, updateTask } from "@/server/actions";
-import { useTransition } from "react";
+import { deleteTask, updateTask } from "@/server/actions";
+// import { useTransition } from "react";
 import type { Task } from "@/lib/types";
 import { Trash2 } from "lucide-react";
 import { TableCell, TableRow } from "./ui/table";
@@ -18,7 +18,7 @@ const TaskComponent = ({ task }: { task: Task }) => {
   const handleChange = async (value: string) => {
     await updateTask(task.id, value);
   };
-  const [startTransition] = useTransition();
+  // const [startTransition] = useTransition();
   // const handleCompleteTask = async (taskId: string) => {
   //   try {
   //     await completeTask(taskId);
@@ -55,9 +55,9 @@ const TaskComponent = ({ task }: { task: Task }) => {
       <TableCell className="text-right">
         <Trash2
           onClick={() => {
-            startTransition(async () => {
+            async () => {
               await deleteTask(task.id);
-            });
+            };
           }}
         />
       </TableCell>
